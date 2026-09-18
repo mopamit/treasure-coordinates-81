@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>היכן התיבה?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap"><img src="assets/prizma-logo.png" alt="Prismind" /></div>
+      <h1>היכן התיבה?</h1>
+      <div class="top-actions">
+        <button id="newGameBtn" class="btn btn-primary">משחק חדש</button>
+        <button id="resetBtn" class="btn btn-secondary">איפוס</button>
+      </div>
+    </header>
+
+    <div class="statusbar">
+      <span class="status-chip" id="stageLabel">פתיחה</span>
+      <span class="status-chip"><strong id="roundCounter">0/3</strong> סיבוב</span>
+      <span class="status-chip">זמן צפייה: <strong id="timerLabel">—</strong></span>
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+    </div>
+
+    <main class="main-content">
+      <section class="map-card">
+        <div id="mapStage" class="map-stage">
+          <img id="mapImage" class="island-map" src="assets/island-map.png" alt="אי פשוט עם אגם, נהר, גשר, עץ, דקל, סלעים, מזח וסירה" />
+          <svg id="overlaySvg" class="overlay-svg" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true">
+            <g id="treasureChest" class="chest hidden">
+              <ellipse cx="0" cy="31" rx="32" ry="10" fill="#17365e" opacity=".2"/>
+              <path d="M-31 -9 Q0 -39 31 -9 L31 4 L-31 4 Z" fill="#d38a2f" stroke="#623a16" stroke-width="5"/>
+              <rect x="-31" y="0" width="62" height="42" rx="7" fill="#a96925" stroke="#623a16" stroke-width="5"/>
+              <rect x="-5" y="12" width="10" height="17" rx="2" fill="#f4d45e" stroke="#7d5a13" stroke-width="2"/>
+              <path d="M-40 -28 l10 12 M-11 -42 l1 16 M18 -40 l-7 15 M40 -25 l-13 10" stroke="#f6cf3e" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <g id="guessMarker" class="guess-marker hidden">
+              <circle r="40" fill="#fff" opacity=".92" stroke="#17365e" stroke-width="5" stroke-dasharray="10 7"/>
+              <circle r="9" fill="#17365e"/>
+            </g>
+            <g id="actualMarker" class="actual-marker hidden">
+              <circle r="46" fill="none" stroke="#6db580" stroke-width="8"/>
+            </g>
+            <g id="gridLayer" class="grid-layer hidden"></g>
+          </svg>
+          <div id="mapInfo" class="map-info">
+            <span id="mapInfoText">מוכנים?</span>
+            <strong id="mapInfoNumber"></strong>
+            <small id="mapInfoSmall"></small>
+          </div>
+          <div id="mapMessage" class="map-message hidden"></div>
+        </div>
+      </section>
+
+      <aside class="side-card"><div id="panel"></div></aside>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
