@@ -18,3 +18,12 @@
 - Each game intentionally mixes three different spatial situations instead of selecting three fully random locations.
 - The final coordinate screen marks the three actual treasure locations on the grid and explains exactly how to read (x,y).
 - Each round shows the student description, the agreed verbal location, and the coordinate pair side-by-side.
+
+
+## עדכון לפי משוב 22.09.2026
+- מאגר מילים קצר במקום דוגמאות משפטים.
+- הכפתור שונה ל־"מקם את התיבה".
+- המחשב ממקם את התיבה לפי התיאור ואינו משווה/מתקן מול המיקום המקורי.
+- במסך האישור נשארת רק השאלה אם זה המקום שאליו התלמיד התכוון.
+- תיבת האוצר צהובה ומהבהבת.
+- כל מיקומי האוצר מיושרים לזוגות סדורים שלמים.

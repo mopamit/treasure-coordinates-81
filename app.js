@@ -10,7 +10,7 @@
   // The accepted descriptions are derived ONLY from the user's approved definitions.
   const TREASURES = [
     {
-      id:1, x:330, y:785,
+      id:1, x:289.6, y:760.2, gx:2, gy:3,
       title:'מימין לסלעים שבקצה השמאלי למטה',
       approved:[
         'ליד הסלעים שנמצאים בקצה השמאלי למטה של המפה, מימין לסלעים',
@@ -20,7 +20,7 @@
       ]
     },
     {
-      id:2, x:395, y:610,
+      id:2, x:434.4, y:651.6, gx:3, gy:4,
       title:'מימין לעץ שבצד שמאל ומעל הסלעים',
       approved:[
         'מימין לעץ שנמצא בצד שמאל של המפה, מעל לסלעים שנמצאים משמאל',
@@ -30,7 +30,7 @@
       ]
     },
     {
-      id:3, x:335, y:355,
+      id:3, x:289.6, y:325.8, gx:2, gy:7,
       title:'בחלק השמאלי של האגם, מעל העץ',
       approved:[
         'בחלק השמאלי של האגם מעל העץ',
@@ -40,7 +40,7 @@
       ]
     },
     {
-      id:4, x:725, y:315,
+      id:4, x:724.0, y:325.8, gx:5, gy:7,
       title:'בחלק הימני של האגם, משמאל לסלעים העליונים',
       approved:[
         'בחלק הימני של האגם משמאל לסלעים הנמצאים בצד ימין למעלה',
@@ -50,7 +50,7 @@
       ]
     },
     {
-      id:5, x:900, y:500,
+      id:5, x:868.8, y:543.0, gx:6, gy:5,
       title:'מעל הגשר, בצד ימין של הנהר',
       approved:[
         'מעל הגשר, בצד ימין של הנהר',
@@ -60,7 +60,7 @@
       ]
     },
     {
-      id:6, x:765, y:535,
+      id:6, x:724.0, y:543.0, gx:5, gy:5,
       title:'משמאל לגשר, בצד שמאל של הנהר',
       approved:[
         'משמאל לגשר בצד שמאל של הנהר',
@@ -70,7 +70,7 @@
       ]
     },
     {
-      id:7, x:1005, y:690,
+      id:7, x:1013.6, y:651.6, gx:7, gy:4,
       title:'בשפך הנהר בצד ימין, מתחת לגשר',
       approved:[
         'בשפך הנהר או הנחל בצד ימין, מתחת לגשר בצד ימין',
@@ -80,7 +80,7 @@
       ]
     },
     {
-      id:8, x:885, y:205,
+      id:8, x:868.8, y:217.2, gx:6, gy:8,
       title:'מתחת לסלעים העליונים ומעל הדקל',
       approved:[
         'מתחת לסלעים בצד הימני למעלה, מעל עץ הדקל ובין הסלעים',
@@ -90,14 +90,14 @@
       ]
     },
     {
-      id:9, x:515, y:870,
+      id:9, x:579.2, y:868.8, gx:4, gy:2,
       title:'על המזח',
       approved:[
         'על המזח', 'על המזח עצמו', 'על הרציף', 'על הרציף שבתחתית המפה', 'על קצה המזח'
       ]
     },
     {
-      id:10, x:720, y:915,
+      id:10, x:724.0, y:868.8, gx:5, gy:2,
       title:'מימין לסירה',
       approved:[
         'מימין לסירה', 'בצד ימין של הסירה', 'ליד הסירה מימין', 'סמוך לסירה בצד ימין'
@@ -191,12 +191,12 @@
   }
 
   function updateStatus(){
-    const labels={intro:'פתיחה',show:'זוכרים את המקום',describe:'מתארים במילים',guess:'בודקים את התיאור',reveal:'משווים',summary:'סיכום',coords:'הפתרון המתמטי'};
+    const labels={intro:'פתיחה',show:'זוכרים את המקום',describe:'מתארים במילים',guess:'ממקמים את התיבה',summary:'סיכום',coords:'הפתרון המתמטי'};
     $('stageLabel').textContent=labels[state.phase]||'משחק';
     $('roundCounter').textContent=state.round?`${state.round}/${ROUND_COUNT}`:`0/${ROUND_COUNT}`;
     $('timerLabel').textContent=state.phase==='show'?`${state.seconds} שנ׳`:'—';
     const base=Math.max(0,state.round-1)*25;
-    const pct={intro:0,show:base+8,describe:base+14,guess:base+19,reveal:base+24,summary:82,coords:100}[state.phase]??0;
+    const pct={intro:0,show:base+8,describe:base+14,guess:base+22,summary:82,coords:100}[state.phase]??0;
     $('progressBar').style.width=pct+'%';
   }
 
@@ -208,8 +208,7 @@
     panel.innerHTML=`
       <h2 class="panel-title">ברוכים הבאים לאי האוצר</h2>
       <p class="panel-lead">בכל סיבוב תופיע תיבה למשך ${SHOW_SECONDS} שניות ותיעלם. לאחר מכן תתארו במילים היכן היא הייתה.</p>
-      <div class="instruction-box"><strong>המפה פשוטה בכוונה.</strong><br>אפשר להשתמש באגם, בנהר, בגשר, בעץ הגדול, בדקל, בסלעים, במזח ובסירה.</div>
-      <div class="tip-box">אין עדיין מערכת צירים. המטרה היא לנסות להיות מדויקים ככל האפשר בעזרת מילים.</div>
+      <div class="instruction-box"><strong>השתמשו במילים:</strong><br>גשר, מזח, סירה, סלע, אגם, נהר, עץ, דקל, ליד, מימין, משמאל, מעל, מתחת, בין, בקצה.</div>
       <button id="startBtn" class="btn btn-primary btn-wide">התחל במשימה</button>`;
     $('startBtn').onclick=startGame; updateStatus();
   }
@@ -233,7 +232,7 @@
   function showRound(){
     clearTimer(); hideMarks(); gridLayer.classList.add('hidden'); state.phase='show'; state.seconds=SHOW_SECONDS;
     const target=state.game[state.round-1]; setAt(chest,target); chest.classList.remove('hidden'); mapInfo('התיבה תיעלם בעוד',state.seconds,'שניות');
-    panel.innerHTML=`<h2 class="panel-title">סיבוב ${state.round} מתוך ${ROUND_COUNT}</h2><p class="panel-lead">התבוננו היטב במקום שבו נמצאת תיבת האוצר.</p><div class="instruction-box">נסו לזכור אותה ביחס לעצמים הקרובים: שמאלה, ימינה, מעל, מתחת, ליד, בין או בקצה.</div>`;
+    panel.innerHTML=`<h2 class="panel-title">סיבוב ${state.round} מתוך ${ROUND_COUNT}</h2><p class="panel-lead">התבוננו היטב במקום שבו נמצאת תיבת האוצר.</p><div class="instruction-box"><strong>השתמשו במילים:</strong><br>גשר, מזח, סירה, סלע, אגם, נהר, עץ, דקל, ליד, מימין, משמאל, מעל, מתחת, בין, בקצה.</div>`;
     updateStatus();
     state.timer=setInterval(()=>{ state.seconds--; mapInfo('התיבה תיעלם בעוד',state.seconds,'שניות'); updateStatus(); if(state.seconds<=0){ clearTimer(); chest.classList.add('hidden'); renderDescribe(''); } },1000);
   }
@@ -243,12 +242,11 @@
     panel.innerHTML=`
       <h2 class="panel-title">היכן הייתה התיבה?</h2>
       <p class="panel-lead">תארו במילים את המקום שבו הופיעה התיבה.</p>
-      <div class="instruction-box"><strong>אפשר לכתוב למשל:</strong><br>“מעל הגשר בצד ימין של הנהר”<br>“בחלק השמאלי של האגם מעל העץ”<br>“מימין לסירה”</div>
+      <div class="instruction-box"><strong>השתמשו במילים:</strong><br>גשר, מזח, סירה, סלע, אגם, נהר, עץ, דקל, ליד, מימין, משמאל, מעל, מתחת, בין, בקצה.</div>
       <label class="textarea-label" for="descriptionInput">התיאור שלכם:</label>
       <textarea id="descriptionInput" class="answer-area" maxlength="260" placeholder="כתבו כאן...">${esc(previous||'')}</textarea>
       <div id="feedback"></div>
-      <div class="action-row"><button id="checkBtn" class="btn btn-primary">בדוק היכן הבנתי</button></div>
-      <p class="small-note">המערכת מחפשת משמעות מרחבית ולא משפט זהה. היא מוגבלת לעשרת המקומות שהוגדרו במפה.</p>`;
+      <div class="action-row"><button id="checkBtn" class="btn btn-primary">מקם את התיבה</button></div>`;
     $('checkBtn').onclick=checkDescription; $('descriptionInput').focus(); updateStatus();
   }
 
@@ -266,31 +264,20 @@
     state.descriptions[state.round-1]=text;
     state.phase='guess'; hideMarks(); setAt(guessMarker,result.best); guessMarker.classList.remove('hidden'); mapInfo('כך הבנתי את התיאור');
     const target=state.game[state.round-1];
+    setAt(chest,result.best); chest.classList.remove('hidden');
     panel.innerHTML=`
-      <h2 class="panel-title">זה המקום שהבנתי</h2>
-      <p class="panel-lead">מהתיאור שלכם הבנתי שהתכוונתם ל:</p>
-      <div class="result-card ${result.best.id===target.id?'good':'diff'}"><strong>${esc(result.best.title)}</strong></div>
+      <h2 class="panel-title">האם זה המקום?</h2>
       <p class="panel-lead">האם הסימון שעל המפה הוא המקום שאליו התכוונתם?</p>
       <div class="action-row">
         <button id="yesBtn" class="btn btn-primary">כן, לזה התכוונתי</button>
         <button id="retryBtn" class="btn btn-outline">לא, אנסח מחדש</button>
       </div>`;
     $('retryBtn').onclick=()=>renderDescribe(text);
-    $('yesBtn').onclick=()=>revealResult(result.best);
-    updateStatus();
-  }
-
-  function revealResult(guess){
-    state.phase='reveal'; const target=state.game[state.round-1];
-    setAt(actualMarker,target); actualMarker.classList.remove('hidden'); setAt(chest,target); chest.classList.remove('hidden');
-    const same=guess.id===target.id;
-    showMessage(same?'התיאור הוביל בדיוק למקום שבו הייתה התיבה.':'המקום שהמחשב הבין שונה מהמקום שבו הייתה התיבה.');
-    panel.innerHTML=`
-      <h2 class="panel-title">השוואה</h2>
-      <div class="result-card ${same?'good':'diff'}">${same?'<strong>מצוין.</strong> התיאור היה מספיק ברור כדי להגיע לאותו מקום.':'התיאור שלכם היה הגיוני, אבל הוא הוביל אותי למקום אחר. זה בדיוק הקושי בתיאור מקום רק במילים.'}</div>
-      <div class="instruction-box"><strong>המקום המקורי:</strong><br>${esc(target.title)}</div>
-      <button id="nextBtn" class="btn btn-primary btn-wide">${state.round<ROUND_COUNT?'לסיבוב הבא':'לסיכום'}</button>`;
-    $('nextBtn').onclick=()=>{ if(state.round<ROUND_COUNT){state.round++;showRound();} else renderSummary(); };
+    $('yesBtn').onclick=()=>{
+      hideMarks();
+      if(state.round<ROUND_COUNT){ state.round++; showRound(); }
+      else renderSummary();
+    };
     updateStatus();
   }
 
@@ -304,7 +291,7 @@
     $('coordsBtn').onclick=showCoordinates; updateStatus();
   }
 
-  function gridCoord(p){ return {x:(p.x/W*10).toFixed(1), y:((1-p.y/H)*10).toFixed(1)}; }
+  function gridCoord(p){ return {x:p.gx, y:p.gy}; }
   function showCoordinates(){
     state.phase='coords'; hideMarks(); drawGrid(); gridLayer.classList.remove('hidden');
     drawRoundMarkers();

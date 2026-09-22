@@ -14,3 +14,7 @@
 
 .answer-list{display:grid;gap:12px;margin:14px 0}.answer-card{border:1px solid #dce7e2;background:#f8fbf9;border-radius:15px;padding:13px 14px}.answer-card-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;margin-bottom:9px}.round-dot{display:inline-flex;width:31px;height:31px;align-items:center;justify-content:center;border-radius:50%;background:var(--burgundy);color:#fff;font-weight:700}.answer-line{display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:start;font-size:15.5px;line-height:1.45;margin-top:5px}.answer-line>span:first-child{color:var(--muted);font-weight:600}.answer-line b{font-weight:700}.coord-badge{background:#eef4f8;border:1px solid #cfdee7;border-radius:9px;padding:5px 9px;color:var(--blue)}
 @media(max-width:650px){.answer-line{grid-template-columns:1fr}.answer-card-head{grid-template-columns:auto 1fr}.answer-card-head .coord-badge{grid-column:1/3;justify-self:start}}
+
+/* Updated treasure visibility */
+.chest{filter:drop-shadow(0 0 12px rgba(255,215,0,.95)) drop-shadow(0 8px 10px rgba(23,54,94,.28));animation:treasureBlink .75s ease-in-out infinite alternate}
+@keyframes treasureBlink{from{opacity:.55;filter:drop-shadow(0 0 4px rgba(255,215,0,.45)) drop-shadow(0 8px 10px rgba(23,54,94,.2))}to{opacity:1;filter:drop-shadow(0 0 22px rgba(255,215,0,1)) drop-shadow(0 8px 10px rgba(23,54,94,.3))}}
