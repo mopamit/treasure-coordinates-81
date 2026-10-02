@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>היכן התיבה?</title>
+  <title>היכן מוסתרת תיבת האוצר?</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <div class="brand-wrap"><img src="assets/prizma-logo.png" alt="Prismind" /></div>
-      <h1>היכן התיבה?</h1>
+      <div class="brand-wrap"><img src="assets/prisma/LOGO Prisming.svg" alt="Prisming — פריזמה" /></div>
+      <h1>היכן מוסתרת תיבת האוצר?</h1>
       <div class="top-actions">
-        <button id="newGameBtn" class="btn btn-primary">משחק חדש</button>
-        <button id="resetBtn" class="btn btn-secondary">איפוס</button>
+        <button id="newGameBtn" class="prisma-action"><img src="assets/prisma/play_circle.svg" alt=""><span>משחק חדש</span></button>
+        <button id="resetBtn" class="prisma-action"><img src="assets/prisma/restart_circle.svg" alt=""><span>איפוס</span></button><button id="helpBtn" class="prisma-action"><img src="assets/prisma/instructions_circle.svg" alt=""><span>עזרה</span></button><button id="soundBtn" class="prisma-action" aria-pressed="true"><img id="soundIcon" src="assets/prisma/speaker_circle.svg" alt=""><span id="soundText">צליל פעיל</span></button>
       </div>
     </header>
 
@@ -43,6 +43,7 @@
             <g id="actualMarker" class="actual-marker hidden">
               <circle r="46" fill="none" stroke="#6db580" stroke-width="8"/>
             </g>
+            <g id="candidateLayer"></g>
             <g id="gridLayer" class="grid-layer hidden"></g>
           </svg>
           <div id="mapInfo" class="map-info">
@@ -57,6 +58,7 @@
       <aside class="side-card"><div id="panel"></div></aside>
     </main>
   </div>
+  <dialog id="helpDialog"><h2>איך משחקים?</h2><p>בכל משחק שלושה מקומות מתוך מאגר של 15. התבוננו בתיבה במשך חמש שניות, ואז תארו את המקום במילים שלכם. אפשר להשתמש בשני עצמים ובכיוונים שביניהם.</p><p>לאחר ניסיון ראשון יופיע כפתור רמז. תיאור עמום יבקש דיוק; מיקום שגוי יאפשר ניסיון חוזר. הצלחה נקבעת כשהצעת המחשב קרובה למיקום המקורי, בטווח של פחות מחצי משבצת.</p><p>במסך הצירים העיגולים המלאים מציינים את המקומות המקוריים. אפשר להציג בנפרד את הניחושים האחרונים בקו מקווקו, או להציג שוב כל תיבה. איפוס זמין בכל שלב.</p><button id="closeHelpBtn" class="btn btn-primary">הבנתי</button></dialog>
   <script src="app.js"></script>
 </body>
 </html>
